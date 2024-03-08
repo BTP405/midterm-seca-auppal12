@@ -1,3 +1,4 @@
+from course import Course
 """
 Module for defining Student class.
 
@@ -29,6 +30,10 @@ class Student:
             name (str): The name of the student.
             student_id (int): The unique ID of the student.
         """
+        self.name = name
+        self.student_id = student_id
+        self.enrolled_courses = []
+        self.grades = {}
         pass
 
 
@@ -42,6 +47,7 @@ class Student:
         Returns:
             None
         """
+        self.enrolled_courses.append(course)
         pass
 
     def drop_course(self, course):
@@ -54,6 +60,7 @@ class Student:
         Returns:
             None
         """
+        self.enrolled_courses.remove(course)
         pass
 
 
@@ -69,4 +76,5 @@ class Student:
         Returns:
             None
         """
+        self.grades[course.course_name] = {assessment.assessment_type: grade}
         pass
